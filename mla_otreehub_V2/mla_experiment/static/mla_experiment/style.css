@@ -1,0 +1,90 @@
+.card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 16px 0;
+    background: #fff;
+}
+
+.muted {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.loss-box {
+    border: 3px solid #D32F2F;
+    color: #D32F2F;
+    font-weight: 800;
+    font-size: 1.25rem;
+    padding: 16px;
+    margin-top: 18px;
+    border-radius: 10px;
+}
+
+.neutral-box {
+    border: 1px solid #aaa;
+    color: #222;
+    font-weight: 500;
+    padding: 14px;
+    margin-top: 18px;
+    border-radius: 10px;
+}
+
+.flash {
+    animation: flashLoss 1s ease-in-out;
+}
+
+@keyframes flashLoss {
+    0% { background: #fff; }
+    25% { background: #ffebee; }
+    50% { background: #fff; }
+    75% { background: #ffebee; }
+    100% { background: #fff; }
+}
+
+.debug-box {
+    border: 1px dashed #777;
+    background: #f8f8f8;
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.debug-box table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.debug-box th, .debug-box td {
+    border: 1px solid #ccc;
+    padding: 6px;
+    text-align: left;
+}
+
+.feedback-explanation {
+    margin-top: 10px;
+    margin-bottom: 0;
+    line-height: 1.45;
+}
+
+.small-note {
+    font-size: 0.95rem;
+    margin-top: 6px;
+}
+
+
+.feedback-card .score-line,
+.feedback-card .net-line {
+    font-size: 1.15rem;
+    margin: 10px 0;
+}
+.research-note {
+    margin-top: 14px;
+    padding: 10px 12px;
+    border: 1px dashed #999;
+    background: #fafafa;
+    color: #222;
+    font-size: 0.95rem;
+}

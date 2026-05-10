@@ -1,0 +1,41 @@
+{{ block title }}Tâche d’investissement — Instructions générales{{ endblock }}
+
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'mla_experiment/style.css' }}">
+
+<div class="card">
+    <p>Vous allez maintenant participer à une tâche d’investissement.</p>
+    <p>La tâche est composée de plusieurs périodes. À chaque période, vous devrez choisir quelle partie d’un portefeuille fictif investir dans un actif risqué.</p>
+    <p>Les montants sont exprimés en euros fictifs. Ces montants servent uniquement à calculer un score dans l’expérience.</p>
+    <p><strong>Votre objectif est de maximiser votre score final en euros.</strong></p>
+</div>
+
+<div class="card">
+    <h4>Votre portefeuille</h4>
+    <p>Au début de chaque période, vous disposez d’un portefeuille de <strong>10 €</strong>.</p>
+    <p>Vous devez choisir combien investir dans l’actif risqué. Vous pouvez investir n’importe quel montant entre 0 € et 10 €.</p>
+    <p>La partie non investie n’est pas exposée au risque.</p>
+    <p>À chaque nouvelle période, vous disposez à nouveau d’un portefeuille de 10 €. Les résultats des périodes précédentes ne modifient donc pas le montant disponible.</p>
+    <p>Vous ne pouvez pas réinvestir les gains obtenus lors des périodes précédentes.</p>
+</div>
+
+<div class="card">
+    <h4>Règle de calcul de base</h4>
+    <p>Pour chaque euro investi :</p>
+    <ul>
+        <li>avec une probabilité de <strong>1/3</strong>, le tirage est favorable ;</li>
+        <li>avec une probabilité de <strong>2/3</strong>, le tirage est défavorable.</li>
+    </ul>
+    <p>Si le tirage est favorable, vous obtenez un gain net égal à <strong>2,5 fois</strong> le montant investi.</p>
+    <p>Si le tirage est défavorable, vous perdez le montant investi.</p>
+    <p><strong>Score de la période = 10 € + résultat net de l’investissement.</strong></p>
+    <p>Exemple si vous investissez 6 € :</p>
+    <ul>
+        <li>Tirage favorable : 10 + 2,5 × 6 = 25 €.</li>
+        <li>Tirage défavorable : 10 − 6 = 4 €.</li>
+    </ul>
+    <p>En moyenne, l’actif risqué a une espérance de gain positive. Cependant, le résultat peut varier d’une période à l’autre.</p>
+</div>
+
+{{ next_button }}
+{{ endblock }}

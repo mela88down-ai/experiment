@@ -1,0 +1,22 @@
+{{ block title }}Étude sur les décisions financières{{ endblock }}
+
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'mla_experiment/style.css' }}">
+
+<div class="card">
+    <h3>Bienvenue</h3>
+    <p>Vous êtes invité(e) à participer à une étude sur la prise de décision financière.</p>
+    <p>L’étude comprend deux parties : un court questionnaire, puis une tâche d’investissement.</p>
+    <p>La durée totale est d’environ 20 minutes.</p>
+    <p>
+        Les montants utilisés dans cette étude sont fictifs. Ils ne correspondent pas à de l’argent réel
+        et ne seront pas versés aux participants. Ils servent uniquement à représenter les décisions
+        et à calculer un score expérimental.
+    </p>
+    <p>Vos réponses sont anonymes et seront utilisées uniquement à des fins de recherche académique.</p>
+    <p>Votre participation est volontaire. Vous pouvez arrêter l’étude à tout moment sans pénalité.</p>
+</div>
+
+{{ formfields }}
+{{ next_button }}
+{{ endblock }}

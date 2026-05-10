@@ -1,0 +1,15 @@
+{{ block title }}Partie 1 — Questionnaire{{ endblock }}
+
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'mla_experiment/style.css' }}">
+
+<div class="card">
+    <p>Vous allez lire plusieurs affirmations portant sur vos habitudes de décision.</p>
+    <p>Pour chacune des affirmations, indiquez dans quelle mesure elle vous correspond.</p>
+    <p><strong>Échelle :</strong> 1 = Pas du tout caractéristique de moi ; 5 = Tout à fait caractéristique de moi.</p>
+    <p>Il n’y a pas de bonne ou de mauvaise réponse. Répondez honnêtement selon ce que vous pensez réellement.</p>
+</div>
+
+{{ formfields }}
+{{ next_button }}
+{{ endblock }}

@@ -1,0 +1,38 @@
+{{ block title }}
+Décision d’investissement
+{{ endblock }}
+
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'mla_experiment/style.css' }}">
+
+<div class="card">
+    {{ if is_cd }}
+        <p><strong>Partie {{ part_number }} — Période {{ period_in_part }} sur 10</strong></p>
+    {{ else }}
+        <p><strong>Période {{ round_number }} sur 20</strong></p>
+    {{ endif }}
+
+    <p>Vous disposez d’un portefeuille fictif de <strong>{{ endowment }} €</strong>.</p>
+    <p>Choisissez combien investir dans l’actif risqué.</p>
+
+    {{ if is_economic }}
+        <p class="muted">Règle actuelle : gain net = {{ gain_multiplier }}× la mise si tirage favorable ; perte = {{ loss_multiplier }}× la mise si tirage défavorable.</p>
+    {{ else }}
+        <p class="muted">Règle actuelle : gain net = {{ gain_multiplier }}× la mise si tirage favorable ; perte = {{ loss_multiplier }}× la mise si tirage défavorable.</p>
+    {{ endif }}
+</div>
+
+{{ formfield player.investment }}
+
+<input type="hidden" name="decision_ms" id="decision_ms" value="0">
+
+{{ next_button }}
+
+<script>
+    const startTime = Date.now();
+    document.addEventListener("submit", function() {
+        const elapsed = Date.now() - startTime;
+        document.getElementById("decision_ms").value = elapsed;
+    });
+</script>
+{{ endblock }}

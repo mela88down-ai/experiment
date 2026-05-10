@@ -1,0 +1,19 @@
+{{ block title }}Partie 2 — Choix entre options{{ endblock }}
+
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'mla_experiment/style.css' }}">
+
+<div class="card">
+    <p>Vous allez maintenant faire 5 choix.</p>
+    <p>Pour chaque question, vous devez choisir entre deux options :</p>
+    <ul>
+        <li><strong>Option A :</strong> ne pas participer à la loterie. Votre résultat est de 0 €.</li>
+        <li><strong>Option B :</strong> participer à la loterie proposée. Un tirage aléatoire détermine votre résultat.</li>
+    </ul>
+    <p>Les montants servent à mesurer vos préférences dans le cadre de l’étude.</p>
+    <p>Il n’y a pas de bonne ou de mauvaise réponse. Choisissez selon vos préférences réelles.</p>
+</div>
+
+{{ formfields }}
+{{ next_button }}
+{{ endblock }}

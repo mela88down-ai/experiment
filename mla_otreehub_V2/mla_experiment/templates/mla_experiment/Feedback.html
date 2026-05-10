@@ -1,0 +1,59 @@
+{{ block title }}Résultat{{ endblock }}
+
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'mla_experiment/style.css' }}">
+
+<div class="card feedback-card">
+    {{ if is_frequent }}
+        <h3>Période {{ round_number }}</h3>
+        <p class="score-line"><strong>Score de la période :</strong> {{ score }} €</p>
+    {{ else }}
+        <h3>Bloc {{ block_number }}</h3>
+        <p class="score-line"><strong>Score total du bloc :</strong> {{ score }} €</p>
+        <p>Les résultats intermédiaires de chaque période ne sont pas affichés.</p>
+    {{ endif }}
+
+    {{ if negative and visual }}
+        <div class="loss-box flash">
+            <p class="net-line"><strong>Résultat net : {{ net }} €</strong></p>
+        </div>
+    {{ else }}
+        <div class="neutral-box">
+            <p class="net-line"><strong>Résultat net : {{ net }} €</strong></p>
+        </div>
+    {{ endif }}
+
+    {{ if debug_visual }}
+        <div class="debug-box">
+            <h4>Mode test chercheur — ne pas utiliser pour la vraie collecte</h4>
+            <p>
+                Traitement : <strong>{{ treatment }}</strong> ·
+                Type de saillance : <strong>{{ salience_type }}</strong> ·
+                Saillance visuelle active sur cette page : <strong>{{ visual }}</strong>
+            </p>
+            <table>
+                <tr>
+                    <th>Période</th>
+                    <th>Mise</th>
+                    <th>Résultat net</th>
+                    <th>Score période</th>
+                    <th>Perte ?</th>
+                    <th>Devrait être rouge ?</th>
+                </tr>
+                {{ for row in debug_rows }}
+                    <tr>
+                        <td>{{ row.round_number }}</td>
+                        <td>{{ row.investment }} €</td>
+                        <td>{{ row.net }} €</td>
+                        <td>{{ row.score }} €</td>
+                        <td>{{ row.loss }}</td>
+                        <td>{{ if row.loss and row.visual_expected }}Oui{{ else }}Non{{ endif }}</td>
+                    </tr>
+                {{ endfor }}
+            </table>
+        </div>
+    {{ endif }}
+</div>
+
+{{ next_button }}
+{{ endblock }}

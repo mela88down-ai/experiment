@@ -1,0 +1,23 @@
+{{ block title }}Fin de l’expérience{{ endblock }}
+
+{{ block content }}
+<link rel="stylesheet" href="{{ static 'mla_experiment/style.css' }}">
+
+<div class="card">
+    <p>La tâche est maintenant terminée.</p>
+    <p>Votre score final a été calculé. Comme indiqué au début de l’étude, ce score ne donne pas lieu à un paiement monétaire.</p>
+    <p>Il sert uniquement à mesurer vos décisions dans le cadre de l’étude.</p>
+</div>
+
+<div class="card">
+    <h4>Récapitulatif</h4>
+    <p>Score final expérimental : <strong>{{ final_score }} € fictifs</strong></p>
+    <p>Investissement moyen : <strong>{{ avg_investment }} €</strong></p>
+    <p>Part moyenne investie : <strong>{{ avg_risk_share }}</strong></p>
+</div>
+
+<div class="card">
+    <p>Merci d’avoir participé à cette étude.</p>
+    <p>Vos réponses sont anonymes et seront utilisées uniquement à des fins de recherche académique.</p>
+</div>
+{{ endblock }}
