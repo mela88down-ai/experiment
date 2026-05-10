@@ -185,62 +185,62 @@ class Player(BasePlayer):
     # CFC-12
     # -------------------------
     cfc_1 = models.IntegerField(
-        label="1. Je réfléchis souvent à la façon dont les choses pourraient évoluer à l’avenir, et j’essaie d’influencer ces évolutions par mes comportements quotidiens.",
+        label="1. J'envisage comment pourraient être les choses dans le futur et j'essaie de les influencer par mon comportement quotidien.",
         choices=C.LIKERT_CHOICES,
         widget=widgets.RadioSelect,
     )
     cfc_2 = models.IntegerField(
-        label="2. Il m’arrive souvent d’adopter un comportement particulier pour obtenir des résultats qui ne se concrétiseront que dans de nombreuses années.",
+        label="2. Souvent, j'adopte un comportement particulier pour atteindre des objectifs qui ne se réaliseront peut-être pas avant des années.",
         choices=C.LIKERT_CHOICES,
         widget=widgets.RadioSelect,
     )
     cfc_3 = models.IntegerField(
-        label="3. J’agis uniquement pour satisfaire mes préoccupations immédiates, en me disant que l’avenir se débrouillera tout seul.",
+        label="3. Je n'agis que pour répondre à des préoccupations immédiates, en pensant que le futur s'arrangera de lui-même.",
         choices=C.LIKERT_CHOICES,
         widget=widgets.RadioSelect,
     )
     cfc_4 = models.IntegerField(
-        label="4. Mon comportement est uniquement influencé par les conséquences immédiates, c’est-à-dire de quelques jours ou semaines, de mes actions.",
+        label="4. Mon comportement n'est influencé que par les conséquences immédiates de mes actes (dans les jours ou semaines qui suivent).",
         choices=C.LIKERT_CHOICES,
         widget=widgets.RadioSelect,
     )
     cfc_5 = models.IntegerField(
-        label="5. Ma commodité personnelle joue un rôle important dans les décisions que je prends ou les actions que j’entreprends.",
+        label="5. Mon confort est un facteur important dans les décisions que je prends ou dans les actions que je réalise.",
         choices=C.LIKERT_CHOICES,
         widget=widgets.RadioSelect,
     )
     cfc_6 = models.IntegerField(
-        label="6. Je suis prêt(e) à sacrifier mon bonheur ou mon bien-être immédiat pour atteindre des objectifs futurs.",
+        label="6. Je suis prêt(e) à sacrifier mon bonheur ou mon bien-être immédiats afin d'atteindre des objectifs futurs.",
         choices=C.LIKERT_CHOICES,
         widget=widgets.RadioSelect,
     )
     cfc_7 = models.IntegerField(
-        label="7. Je pense qu’il est important de prendre au sérieux les avertissements sur des conséquences négatives, même si ces conséquences ne surviendront que dans de nombreuses années.",
+        label="7. Je pense qu'il est important de prendre au sérieux les mises en garde contre les conséquences négatives de mes actes, même si ces conséquences négatives n'interviendront pas avant plusieurs années.",
         choices=C.LIKERT_CHOICES,
         widget=widgets.RadioSelect,
     )
     cfc_8 = models.IntegerField(
-        label="8. Je pense qu’il est plus important d’adopter un comportement aux conséquences importantes à long terme qu’un comportement aux conséquences moins importantes à court terme.",
+        label="8. Je pense qu'il vaut mieux adopter un comportement dont les conséquences lointaines seront bénéfiques, plutôt qu'un comportement entraînant des conséquences immédiates moins bénéfiques.",
         choices=C.LIKERT_CHOICES,
         widget=widgets.RadioSelect,
     )
     cfc_9 = models.IntegerField(
-        label="9. En général, je ne tiens pas compte des avertissements sur de possibles problèmes futurs, car je pense que ces problèmes seront résolus avant d’atteindre un stade critique.",
+        label="9. Je ne tiens généralement pas compte des mises en garde contre d'éventuels problèmes futurs car je pense que ces problèmes seront résolus avant d'avoir atteint un niveau critique.",
         choices=C.LIKERT_CHOICES,
         widget=widgets.RadioSelect,
     )
     cfc_10 = models.IntegerField(
-        label="10. Je pense que se sacrifier maintenant est généralement inutile, car les conséquences futures pourront être gérées le moment venu.",
+        label="10. Je pense qu'il n'est généralement pas nécessaire de faire des sacrifices dans le présent puisque je peux m'occuper des conséquences futures plus tard.",
         choices=C.LIKERT_CHOICES,
         widget=widgets.RadioSelect,
     )
     cfc_11 = models.IntegerField(
-        label="11. J’agis uniquement pour satisfaire mes préoccupations immédiates, en me disant que je m’occuperai des problèmes futurs éventuels le moment venu.",
+        label="11. Je n'agis que pour répondre à des préoccupations immédiates, en pensant que je m'occuperai plus tard des problèmes qui surviendront éventuellement dans l'avenir.",
         choices=C.LIKERT_CHOICES,
         widget=widgets.RadioSelect,
     )
     cfc_12 = models.IntegerField(
-        label="12. Comme mon travail quotidien produit des résultats concrets, il est plus important pour moi que des comportements aux effets lointains.",
+        label="12. Puisque mes actions quotidiennes ont des résultats précis, elles sont plus importantes pour moi qu'un comportement ayant des conséquences lointaines.",
         choices=C.LIKERT_CHOICES,
         widget=widgets.RadioSelect,
     )
