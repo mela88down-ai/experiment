@@ -20,7 +20,7 @@ class C(BaseConstants):
     BASE_GAIN_MULT = 2.5
     BASE_LOSS_MULT = 1.0
     ECON_GAIN_MULT = 6.0
-    ECON_LOSS_MULT = 2.75
+    ECON_LOSS_MULT = 2.0
 
     LIKERT_CHOICES = [
         [1, '1 - Pas du tout caractéristique de moi'],
@@ -177,7 +177,7 @@ class Player(BasePlayer):
     # Consent
     # -------------------------
     consent = models.BooleanField(
-        label='Je confirme avoir lu les informations et j’accepte de participer à cette étude.',
+        label="Je confirme avoir lu les informations et j'accepte de participer à cette étude.",
         blank=False,
     )
 
@@ -303,7 +303,7 @@ class Player(BasePlayer):
     # Investment task
     # -------------------------
     investment = models.FloatField(
-        label='Montant investi dans l’actif risqué, entre 0 € et 10 €',
+        label="Montant investi dans l'actif risqué, entre 0 € et 10 €",
         min=0,
         max=10,
     )
@@ -340,7 +340,7 @@ class Player(BasePlayer):
     comprehension_check = models.StringField(
         label='Dans la règle alternative, que se passe-t-il si vous investissez 4 € et que le tirage est défavorable ?',
         choices=[
-            ['correct', 'Vous perdez 2,75 × 4 €, donc 11 € ; le score de période est 10 − 11 = −1 €.'],
+            ['correct', 'Vous perdez 2 × 4 €, donc 8 € ; le score de période est 10 − 8 = 2 €.'],
             ['wrong_base', 'Vous perdez seulement 4 €, comme dans la règle de base.'],
             ['wrong_reset', 'Vous ne pouvez plus investir aux périodes suivantes.'],
         ],
@@ -570,8 +570,6 @@ class Feedback(Page):
         else:
             pct_of_investment = None
 
-        # Standardized feedback message: all conditions show the net result.
-        # Only perceptive-salience losses in C/D are visually emphasized.
         net_label = 'Résultat net de la période' if is_frequent else 'Résultat net du bloc'
         if is_frequent:
             if negative:
@@ -608,7 +606,6 @@ class Feedback(Page):
                     'Le résultat net du bloc est nul. Il correspond à la somme des résultats nets des 5 périodes du bloc.'
                 )
 
-        # In debug mode only, expose hidden period-level outcomes to verify styling.
         debug_rows = []
         if debug_visual:
             if is_frequent:
@@ -693,4 +690,5 @@ page_sequence = [
     BetweenParts,
     ManipulationCheck,
     FinalResults,
+]
 ]
