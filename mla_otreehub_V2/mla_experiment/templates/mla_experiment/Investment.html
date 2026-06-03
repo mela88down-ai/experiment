@@ -1,38 +1,33 @@
-{{ block title }}
-Décision d’investissement
-{{ endblock }}
-
-{{ block content }}
+{% block title %}Période {{ period_number }} — Décision{% endblock %}
+ 
+{% block content %}
 <link rel="stylesheet" href="{{ static 'mla_experiment/style.css' }}">
-
+ 
 <div class="card">
-    {{ if is_cd }}
-        <p><strong>Partie {{ part_number }} — Période {{ period_in_part }} sur 10</strong></p>
-    {{ else }}
-        <p><strong>Période {{ round_number }} sur 20</strong></p>
-    {{ endif }}
-
-    <p>Vous disposez d’un portefeuille fictif de <strong>{{ endowment }} €</strong>.</p>
-    <p>Choisissez combien investir dans l’actif risqué.</p>
-
-    {{ if is_economic }}
-        <p class="muted">Règle actuelle : gain net = {{ gain_multiplier }}× la mise si tirage favorable ; perte = {{ loss_multiplier }}× la mise si tirage défavorable.</p>
-    {{ else }}
-        <p class="muted">Règle actuelle : gain net = {{ gain_multiplier }}× la mise si tirage favorable ; perte = {{ loss_multiplier }}× la mise si tirage défavorable.</p>
-    {{ endif }}
+ 
+  <span class="badge">Période {{ period_number }} / {{ total_periods }}</span>
+ 
+  <h1>Votre décision d'investissement</h1>
+ 
+  <p>
+    Vous disposez d'un portefeuille de <strong>10 €</strong>. Choisissez le montant que vous
+    souhaitez investir dans l'actif risqué.
+  </p>
+ 
+  {% if rule == "base" %}
+  <div class="info-box">
+    <p><strong>Rappel des règles :</strong> tirage favorable (prob. 1/3) → gain de <strong>2,5×</strong> la mise | tirage défavorable (prob. 2/3) → <strong>perte</strong> de la mise.</p>
+  </div>
+  {% elif rule == "alternative" %}
+  <div class="info-box" style="border-left-color: var(--negative);">
+    <p><strong>Rappel des règles :</strong> tirage favorable (prob. 1/3) → gain de <strong>6×</strong> la mise | tirage défavorable (prob. 2/3) → perte de <strong>2×</strong> la mise.</p>
+    <p style="margin-top:.4rem; color: var(--negative);">Le score de cette période peut être négatif.</p>
+  </div>
+  {% endif %}
+ 
+  {{ formfields }}
+ 
 </div>
-
-{{ formfield player.investment }}
-
-<input type="hidden" name="decision_ms" id="decision_ms" value="0">
-
+ 
 {{ next_button }}
-
-<script>
-    const startTime = Date.now();
-    document.addEventListener("submit", function() {
-        const elapsed = Date.now() - startTime;
-        document.getElementById("decision_ms").value = elapsed;
-    });
-</script>
-{{ endblock }}
+{% endblock %}
