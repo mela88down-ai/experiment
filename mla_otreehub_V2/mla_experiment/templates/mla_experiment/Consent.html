@@ -1,22 +1,44 @@
-{{ block title }}Étude sur les décisions financières{{ endblock }}
+{% block title %}Consentement{% endblock %}
 
-{{ block content }}
+{% block content %}
 <link rel="stylesheet" href="{{ static 'mla_experiment/style.css' }}">
 
 <div class="card">
-    <h3>Bienvenue</h3>
-    <p>Vous êtes invité(e) à participer à une étude sur la prise de décision financière.</p>
-    <p>L’étude comprend deux parties : un court questionnaire, puis une tâche d’investissement.</p>
-    <p>La durée totale est d’environ 20 minutes.</p>
-    <p>
-        Les montants utilisés dans cette étude sont fictifs. Ils ne correspondent pas à de l’argent réel
-        et ne seront pas versés aux participants. Ils servent uniquement à représenter les décisions
-        et à calculer un score expérimental.
-    </p>
-    <p>Vos réponses sont anonymes et seront utilisées uniquement à des fins de recherche académique.</p>
-    <p>Votre participation est volontaire. Vous pouvez arrêter l’étude à tout moment sans pénalité.</p>
+
+  <span class="badge">Consentement éclairé</span>
+
+  <h1>Formulaire de consentement</h1>
+
+  <p>
+    Avant de commencer, veuillez lire attentivement les informations ci-dessous et indiquer
+    si vous acceptez de participer à cette étude.
+  </p>
+
+  <h2>Nature de l'étude</h2>
+  <p>
+    Cette étude porte sur les décisions économiques. Votre participation consiste à réaliser
+    une tâche d'investissement dans laquelle vous prendrez une série de décisions financières
+    fictives.
+  </p>
+
+  <h2>Confidentialité</h2>
+  <p>
+    Vos réponses sont <strong>entièrement anonymes</strong>. Aucune information permettant
+    de vous identifier ne sera collectée ni conservée. Les données seront utilisées uniquement
+    à des fins de <strong>recherche académique</strong>.
+  </p>
+
+  <h2>Participation volontaire</h2>
+  <p>
+    Votre participation est <strong>volontaire</strong>. Vous pouvez interrompre l'étude
+    à tout moment sans conséquence.
+  </p>
+
+  <hr>
+
+  {{ formfields }}
+
 </div>
 
-{{ formfields }}
 {{ next_button }}
-{{ endblock }}
+{% endblock %}
