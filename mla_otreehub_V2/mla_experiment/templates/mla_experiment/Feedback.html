@@ -1,59 +1,91 @@
-{{ block title }}Résultat{{ endblock }}
+{% block title %}Résultat{% endblock %}
 
-{{ block content }}
+{% block content %}
 <link rel="stylesheet" href="{{ static 'mla_experiment/style.css' }}">
 
-<div class="card feedback-card">
-    {{ if is_frequent }}
-        <h3>Période {{ round_number }}</h3>
-        <p class="score-line"><strong>Score de la période :</strong> {{ score }} €</p>
-    {{ else }}
-        <h3>Bloc {{ block_number }}</h3>
-        <p class="score-line"><strong>Score total du bloc :</strong> {{ score }} €</p>
-        <p>Les résultats intermédiaires de chaque période ne sont pas affichés.</p>
-    {{ endif }}
+<div class="card">
 
-    {{ if negative and visual }}
-        <div class="loss-box flash">
-            <p class="net-line"><strong>Résultat net : {{ net }} €</strong></p>
-        </div>
-    {{ else }}
-        <div class="neutral-box">
-            <p class="net-line"><strong>Résultat net : {{ net }} €</strong></p>
-        </div>
-    {{ endif }}
+  {% if is_frequent %}
+    <span class="badge">Période {{ round_number }}</span>
+    <h1>Score de la période</h1>
+  {% else %}
+    <span class="badge">Bloc {{ block_number }}</span>
+    <h1>Score total du bloc</h1>
+  {% endif %}
 
-    {{ if debug_visual }}
-        <div class="debug-box">
-            <h4>Mode test chercheur — ne pas utiliser pour la vraie collecte</h4>
-            <p>
-                Traitement : <strong>{{ treatment }}</strong> ·
-                Type de saillance : <strong>{{ salience_type }}</strong> ·
-                Saillance visuelle active sur cette page : <strong>{{ visual }}</strong>
-            </p>
-            <table>
-                <tr>
-                    <th>Période</th>
-                    <th>Mise</th>
-                    <th>Résultat net</th>
-                    <th>Score période</th>
-                    <th>Perte ?</th>
-                    <th>Devrait être rouge ?</th>
-                </tr>
-                {{ for row in debug_rows }}
-                    <tr>
-                        <td>{{ row.round_number }}</td>
-                        <td>{{ row.investment }} €</td>
-                        <td>{{ row.net }} €</td>
-                        <td>{{ row.score }} €</td>
-                        <td>{{ row.loss }}</td>
-                        <td>{{ if row.loss and row.visual_expected }}Oui{{ else }}Non{{ endif }}</td>
-                    </tr>
-                {{ endfor }}
-            </table>
-        </div>
-    {{ endif }}
+  {% if score >= 0 %}
+    <div class="score-display" style="color: var(--positive);">{{ score }} €</div>
+  {% else %}
+    <div class="score-display" style="color: var(--negative);">{{ score }} €</div>
+  {% endif %}
+
+  {% if not is_frequent %}
+    <p>Les résultats intermédiaires de chaque période ne sont pas affichés.</p>
+  {% endif %}
+
+  {% if negative and visual %}
+    <div style="
+      margin-top: 1.2rem;
+      background: rgba(248,113,113,.12);
+      border: 2px solid #f87171;
+      border-radius: 10px;
+      padding: 1.4rem 1.6rem;
+      text-align: center;
+      animation: flashRed 0.6s ease 2;
+    ">
+      <div style="font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#f87171; margin-bottom:.5rem;">Résultat net</div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:2rem; font-weight:700; color:#f87171;">{{ net }} €</div>
+      <div style="font-size:.8rem; color:#f87171; margin-top:.4rem; opacity:.8;">Perte sur la période</div>
+    </div>
+    <style>
+      @keyframes flashRed {
+        0%, 100% { box-shadow: 0 0 0 rgba(248,113,113,0); }
+        50%       { box-shadow: 0 0 24px rgba(248,113,113,.5); }
+      }
+    </style>
+  {% else %}
+    <div class="info-box" style="margin-top: 1rem;">
+      <p><strong>Résultat net :</strong> {{ net }} €</p>
+    </div>
+  {% endif %}
+
+  {% if debug_visual %}
+  <hr>
+  <div class="info-box" style="border-left-color: var(--text-muted);">
+    <h3 style="margin-top:0; color: var(--text-muted);">Mode test chercheur — ne pas utiliser pour la vraie collecte</h3>
+    <p>
+      Traitement : <strong>{{ treatment }}</strong> ·
+      Type de saillance : <strong>{{ salience_type }}</strong> ·
+      Saillance visuelle active : <strong>{{ visual }}</strong>
+    </p>
+    <table class="summary-table" style="margin-top: 1rem;">
+      <thead>
+        <tr>
+          <th>Période</th>
+          <th>Mise</th>
+          <th>Résultat net</th>
+          <th>Score période</th>
+          <th>Perte ?</th>
+          <th>Devrait être rouge ?</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in debug_rows %}
+        <tr>
+          <td>{{ row.round_number }}</td>
+          <td class="mono">{{ row.investment }} €</td>
+          <td class="mono">{{ row.net }} €</td>
+          <td class="mono">{{ row.score }} €</td>
+          <td>{{ row.loss }}</td>
+          <td>{% if row.loss and row.visual_expected %}Oui{% else %}Non{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+
 </div>
 
 {{ next_button }}
-{{ endblock }}
+{% endblock %}
