@@ -26,21 +26,30 @@
   {% if negative and visual %}
     <div style="
       margin-top: 1.2rem;
-      background: rgba(248,113,113,.12);
-      border: 2px solid #f87171;
+      background: #ffffff;
+      border: 3px solid #D32F2F;
       border-radius: 10px;
       padding: 1.4rem 1.6rem;
       text-align: center;
       animation: flashRed 0.6s ease 2;
     ">
-      <div style="font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#f87171; margin-bottom:.5rem;">Résultat net</div>
-      <div style="font-family:'JetBrains Mono',monospace; font-size:2rem; font-weight:700; color:#f87171;">{{ net }} €</div>
-      <div style="font-size:.8rem; color:#f87171; margin-top:.4rem; opacity:.8;">Perte sur la période</div>
+      <div style="font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#D32F2F; margin-bottom:.5rem;">
+        Résultat net
+      </div>
+
+      <div style="font-family:'JetBrains Mono',monospace; font-size:2rem; font-weight:800; color:#B00020;">
+        {{ net }} €
+      </div>
+
+      <div style="font-size:.8rem; color:#D32F2F; margin-top:.4rem; opacity:.9;">
+        Perte sur la période
+      </div>
     </div>
+
     <style>
       @keyframes flashRed {
-        0%, 100% { box-shadow: 0 0 0 rgba(248,113,113,0); }
-        50%       { box-shadow: 0 0 24px rgba(248,113,113,.5); }
+        0%, 100% { box-shadow: 0 0 0 rgba(211,47,47,0); }
+        50%       { box-shadow: 0 0 22px rgba(211,47,47,.45); }
       }
     </style>
   {% else %}
