@@ -12,16 +12,24 @@
 }
 
 .loss-box {
-    border: 3px solid #D32F2F;
-    color: #D32F2F;
+    background: #ffffff !important;
+    border: 3px solid #D32F2F !important;
+    color: #B00020 !important;
     font-weight: 800;
     font-size: 1.25rem;
-    padding: 16px;
+    padding: 18px;
     margin-top: 18px;
     border-radius: 10px;
+    text-align: center;
+}
+
+/* Force aussi les textes à l’intérieur à rester rouges */
+.loss-box * {
+    color: #B00020 !important;
 }
 
 .neutral-box {
+    background: #ffffff;
     border: 1px solid #aaa;
     color: #222;
     font-weight: 500;
@@ -34,12 +42,28 @@
     animation: flashLoss 1s ease-in-out;
 }
 
+/* Plus de fond rose : on fait flasher la bordure, pas le background */
 @keyframes flashLoss {
-    0% { background: #fff; }
-    25% { background: #ffebee; }
-    50% { background: #fff; }
-    75% { background: #ffebee; }
-    100% { background: #fff; }
+    0% {
+        background: #ffffff;
+        border-color: #D32F2F;
+    }
+    25% {
+        background: #ffffff;
+        border-color: #B00020;
+    }
+    50% {
+        background: #ffffff;
+        border-color: #D32F2F;
+    }
+    75% {
+        background: #ffffff;
+        border-color: #B00020;
+    }
+    100% {
+        background: #ffffff;
+        border-color: #D32F2F;
+    }
 }
 
 .debug-box {
@@ -57,7 +81,8 @@
     margin-top: 10px;
 }
 
-.debug-box th, .debug-box td {
+.debug-box th,
+.debug-box td {
     border: 1px solid #ccc;
     padding: 6px;
     text-align: left;
@@ -74,12 +99,12 @@
     margin-top: 6px;
 }
 
-
 .feedback-card .score-line,
 .feedback-card .net-line {
     font-size: 1.15rem;
     margin: 10px 0;
 }
+
 .research-note {
     margin-top: 14px;
     padding: 10px 12px;
