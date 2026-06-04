@@ -42,7 +42,11 @@
       </div>
 
       <div style="font-size:.8rem; color:#D32F2F; margin-top:.4rem; opacity:.9;">
-        Perte sur la période
+        {% if is_frequent %}
+          Résultat net de la période
+        {% else %}
+          Résultat net du bloc
+        {% endif %}
       </div>
     </div>
 
@@ -53,8 +57,29 @@
       }
     </style>
   {% else %}
-    <div class="info-box" style="margin-top: 1rem;">
-      <p><strong>Résultat net :</strong> {{ net }} €</p>
+    <div class="info-box" style="
+      margin-top: 1.2rem;
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 1.4rem 1.6rem;
+      text-align: center;
+    ">
+      <div style="font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#222; margin-bottom:.5rem;">
+        Résultat net
+      </div>
+
+      <div style="font-family:'JetBrains Mono',monospace; font-size:2rem; font-weight:700; color:#222;">
+        {{ net }} €
+      </div>
+
+      <div style="font-size:.8rem; color:#222; margin-top:.4rem; opacity:.8;">
+        {% if is_frequent %}
+          Résultat net de la période
+        {% else %}
+          Résultat net du bloc
+        {% endif %}
+      </div>
     </div>
   {% endif %}
 
