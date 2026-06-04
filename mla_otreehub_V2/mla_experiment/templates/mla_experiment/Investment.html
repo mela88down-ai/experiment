@@ -1,33 +1,37 @@
-{% block title %}Période {{ period_number }} — Décision{% endblock %}
- 
+{% block title %}Période {{ round_number }} — Décision{% endblock %}
+
 {% block content %}
 <link rel="stylesheet" href="{{ static 'mla_experiment/style.css' }}">
- 
+
 <div class="card">
- 
-  <span class="badge">Période {{ period_number }} / {{ total_periods }}</span>
- 
+
+  <span class="badge">Période {{ round_number }} / 20</span>
+
   <h1>Votre décision d'investissement</h1>
- 
+
   <p>
     Vous disposez d'un portefeuille de <strong>10 €</strong>. Choisissez le montant que vous
     souhaitez investir dans l'actif risqué.
   </p>
- 
-  {% if rule == "base" %}
+
+  {% if salience_type == "none" or salience_type == "" %}
   <div class="info-box">
     <p><strong>Rappel des règles :</strong> tirage favorable (prob. 1/3) → gain de <strong>2,5×</strong> la mise | tirage défavorable (prob. 2/3) → <strong>perte</strong> de la mise.</p>
   </div>
-  {% elif rule == "alternative" %}
+  {% elif is_economic %}
   <div class="info-box" style="border-left-color: var(--negative);">
-    <p><strong>Rappel des règles :</strong> tirage favorable (prob. 1/3) → gain de <strong>6×</strong> la mise | tirage défavorable (prob. 2/3) → perte de <strong>2×</strong> la mise.</p>
+    <p><strong>Rappel des règles :</strong> tirage favorable (prob. 1/3) → gain de <strong>{{ gain_multiplier }}×</strong> la mise | tirage défavorable (prob. 2/3) → perte de <strong>{{ loss_multiplier }}×</strong> la mise.</p>
     <p style="margin-top:.4rem; color: var(--negative);">Le score de cette période peut être négatif.</p>
   </div>
+  {% else %}
+  <div class="info-box">
+    <p><strong>Rappel des règles :</strong> tirage favorable (prob. 1/3) → gain de <strong>2,5×</strong> la mise | tirage défavorable (prob. 2/3) → <strong>perte</strong> de la mise.</p>
+  </div>
   {% endif %}
- 
+
   {{ formfields }}
- 
+
 </div>
- 
+
 {{ next_button }}
 {% endblock %}
