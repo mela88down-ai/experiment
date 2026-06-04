@@ -29,7 +29,14 @@
   </div>
   {% endif %}
 
-  {{ formfields }}
+  {{ formfield "investment" }}
+  <input type="hidden" name="decision_ms" id="id_decision_ms" value="0">
+  <script>
+    var _t0 = Date.now();
+    document.querySelector("form").addEventListener("submit", function() {
+      document.getElementById("id_decision_ms").value = Date.now() - _t0;
+    });
+  </script>
 
 </div>
 
