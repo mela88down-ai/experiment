@@ -1,4 +1,4 @@
-{% block title %}Instructions — Version {{ treatment }}{% endblock %}
+{% block title %}Instructions{% endblock %}
 
 {% block content %}
 <link rel="stylesheet" href="{{ static 'mla_experiment/style.css' }}">
@@ -10,169 +10,193 @@
   {% if treatment == "A" %}
 
     <h1>Déroulement de la tâche</h1>
-
     <div class="info-box">
-      <p>L'exercice se déroule en <strong>20 périodes indépendantes</strong>, organisées en
-      <strong>4 blocs de 5 périodes</strong>.</p>
+      <p>L'exercice se déroule en <strong>20 périodes indépendantes</strong>, organisées en <strong>4 blocs de 5 périodes</strong>.</p>
     </div>
-
-    <p>
-      Vous disposez, à chaque période, d'un portefeuille de <strong>10 €</strong> avec lequel
-      vous choisissez combien investir dans l'actif risqué.
-    </p>
-    <p>
-      Pour chaque bloc, vous prendrez <strong>5 décisions successives</strong>, puis vous verrez
-      le <strong>score total après les 5 périodes</strong>. Vous ne verrez donc pas le détail des
-      résultats après chaque choix individuel.
-    </p>
-
+    <p>Vous disposez, à chaque période, d'un portefeuille de <strong>10 €</strong> avec lequel vous choisissez combien investir dans l'actif risqué.</p>
+    <p>Pour chaque bloc, vous prendrez <strong>5 décisions successives</strong>, puis vous verrez le <strong>score total après les 5 périodes</strong>. Vous ne verrez pas le détail des résultats après chaque choix.</p>
     <table class="summary-table">
-      <thead>
-        <tr>
-          <th>Décisions</th>
-          <th>Affichages de résultats</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="mono">20 au total</td>
-          <td class="mono">4 au total (1 par bloc)</td>
-        </tr>
-      </tbody>
+      <thead><tr><th>Décisions</th><th>Affichages de résultats</th></tr></thead>
+      <tbody><tr><td class="mono">20 au total</td><td class="mono">4 au total (1 par bloc)</td></tr></tbody>
     </table>
-
+    <h2>Règle de calcul</h2>
+    <p>Pour chaque euro investi :</p>
+    <ul>
+      <li>Probabilité de <strong>1/3</strong> que le tirage soit <strong>favorable</strong></li>
+      <li>Probabilité de <strong>2/3</strong> que le tirage soit <strong>défavorable</strong></li>
+    </ul>
+    <div class="info-box">
+      <p><strong>Tirage favorable :</strong> gain net égal à <strong>2,5 fois</strong> le montant investi.</p>
+      <p><strong>Tirage défavorable :</strong> vous perdez le montant investi.</p>
+      <p style="margin-top:.6rem"><strong>Score de la période</strong> = 10 € + résultat net</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card favorable"><div class="label">✓ Favorable — 6 € investis</div><div class="amount">10 + 2,5 × 6 = <strong>25 €</strong></div></div>
+      <div class="result-card defavorable"><div class="label">✗ Défavorable — 6 € investis</div><div class="amount">10 − 6 = <strong>4 €</strong></div></div>
+    </div>
     <h3>Exemple d'affichage</h3>
     <div class="results-grid">
-      <div class="result-card favorable">
-        <div class="label">Score total du bloc</div>
-        <div class="amount">25 €</div>
-      </div>
-      <div class="result-card defavorable">
-        <div class="label">Score total du bloc</div>
-        <div class="amount">4 €</div>
-      </div>
+      <div class="result-card favorable"><div class="label">Score total du bloc</div><div class="amount">25 €</div></div>
+      <div class="result-card defavorable"><div class="label">Score total du bloc</div><div class="amount">4 €</div></div>
     </div>
-
-    <p>Après chaque affichage, vous passerez au bloc suivant.</p>
 
   {% elif treatment == "B" %}
 
     <h1>Déroulement de la tâche</h1>
-
     <div class="info-box">
-      <p>L'exercice se déroule en <strong>20 périodes indépendantes</strong>.</p>
+      <p>L'exercice se déroule en <strong>20 périodes indépendantes</strong>. Après chaque période, le score est affiché.</p>
     </div>
-
-    <p>
-      Vous disposez, à chaque période, d'un portefeuille de <strong>10 €</strong> avec lequel
-      vous choisissez combien investir dans l'actif risqué.
-    </p>
-    <p>
-      Après <strong>chaque période</strong>, le score de la période est affiché immédiatement.
-    </p>
-
+    <p>Vous disposez, à chaque période, d'un portefeuille de <strong>10 €</strong> avec lequel vous choisissez combien investir dans l'actif risqué.</p>
     <table class="summary-table">
-      <thead>
-        <tr>
-          <th>Décisions</th>
-          <th>Affichages de résultats</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="mono">20 au total</td>
-          <td class="mono">20 au total (1 par période)</td>
-        </tr>
-      </tbody>
+      <thead><tr><th>Décisions</th><th>Affichages de résultats</th></tr></thead>
+      <tbody><tr><td class="mono">20 au total</td><td class="mono">20 au total (1 par période)</td></tr></tbody>
     </table>
-
+    <h2>Règle de calcul</h2>
+    <p>Pour chaque euro investi :</p>
+    <ul>
+      <li>Probabilité de <strong>1/3</strong> que le tirage soit <strong>favorable</strong></li>
+      <li>Probabilité de <strong>2/3</strong> que le tirage soit <strong>défavorable</strong></li>
+    </ul>
+    <div class="info-box">
+      <p><strong>Tirage favorable :</strong> gain net égal à <strong>2,5 fois</strong> le montant investi.</p>
+      <p><strong>Tirage défavorable :</strong> vous perdez le montant investi.</p>
+      <p style="margin-top:.6rem"><strong>Score de la période</strong> = 10 € + résultat net</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card favorable"><div class="label">✓ Favorable — 6 € investis</div><div class="amount">10 + 2,5 × 6 = <strong>25 €</strong></div></div>
+      <div class="result-card defavorable"><div class="label">✗ Défavorable — 6 € investis</div><div class="amount">10 − 6 = <strong>4 €</strong></div></div>
+    </div>
     <h3>Exemple d'affichage</h3>
     <div class="results-grid">
-      <div class="result-card favorable">
-        <div class="label">Score de la période</div>
-        <div class="amount">25 €</div>
-      </div>
-      <div class="result-card defavorable">
-        <div class="label">Score de la période</div>
-        <div class="amount">4 €</div>
-      </div>
+      <div class="result-card favorable"><div class="label">Score de la période</div><div class="amount">25 €</div></div>
+      <div class="result-card defavorable"><div class="label">Score de la période</div><div class="amount">4 €</div></div>
     </div>
-
-    <p>Après chaque affichage, vous passerez à la période suivante.</p>
 
   {% elif treatment == "C" %}
 
-    <h1>Déroulement de la tâche</h1>
+    {% if part_number == 1 %}
 
-    <div class="info-box">
-      <p>L'exercice se déroule en <strong>deux parties de 10 périodes indépendantes</strong> chacune.
-      Les résultats sont affichés par <strong>blocs de 5 périodes</strong>.</p>
+      <h1>Déroulement de la tâche</h1>
+      <div class="info-box">
+        <p>L'exercice se déroule en <strong>deux parties de 10 périodes</strong> chacune. Les résultats sont affichés par <strong>blocs de 5 périodes</strong>.</p>
+      </div>
+      <p>Vous disposez, à chaque période, d'un portefeuille de <strong>10 €</strong> avec lequel vous choisissez combien investir dans l'actif risqué.</p>
+      <table class="summary-table">
+        <thead><tr><th>Décisions</th><th>Affichages de résultats</th></tr></thead>
+        <tbody><tr><td class="mono">20 au total</td><td class="mono">4 au total (1 par bloc)</td></tr></tbody>
+      </table>
+
+    {% else %}
+
+      <h1>Règles de la seconde partie</h1>
+
+    {% endif %}
+
+    <h2>Règle de calcul — {{ part_number }}ère/ème partie</h2>
+    <p>Pour chaque euro investi :</p>
+    <ul>
+      <li>Probabilité de <strong>1/3</strong> que le tirage soit <strong>favorable</strong></li>
+      <li>Probabilité de <strong>2/3</strong> que le tirage soit <strong>défavorable</strong></li>
+    </ul>
+
+    {% if is_economic %}
+    <div class="info-box" style="border-left-color: var(--negative);">
+      <p><strong>Tirage favorable :</strong> gain net égal à <strong>6 fois</strong> le montant investi.</p>
+      <p><strong>Tirage défavorable :</strong> vous perdez <strong>2 fois</strong> le montant investi.</p>
+      <p style="margin-top:.6rem"><strong>Score de la période</strong> = 10 € + résultat net</p>
+      <p style="color: var(--negative); margin-top:.4rem">⚠️ Le score d'une période ou d'un bloc peut être <strong>négatif</strong>. Cela ne modifie pas le portefeuille des périodes suivantes.</p>
     </div>
+    <div class="results-grid">
+      <div class="result-card favorable"><div class="label">✓ Favorable — 4 € investis</div><div class="amount">10 + 6 × 4 = <strong>34 €</strong></div></div>
+      <div class="result-card defavorable"><div class="label">✗ Défavorable — 4 € investis</div><div class="amount">10 − 2 × 4 = <strong>2 €</strong></div></div>
+    </div>
+    {% else %}
+    <div class="info-box">
+      <p><strong>Tirage favorable :</strong> gain net égal à <strong>2,5 fois</strong> le montant investi.</p>
+      <p><strong>Tirage défavorable :</strong> vous perdez le montant investi.</p>
+      <p style="margin-top:.6rem"><strong>Score de la période</strong> = 10 € + résultat net</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card favorable"><div class="label">✓ Favorable — 6 € investis</div><div class="amount">10 + 2,5 × 6 = <strong>25 €</strong></div></div>
+      <div class="result-card defavorable"><div class="label">✗ Défavorable — 6 € investis</div><div class="amount">10 − 6 = <strong>4 €</strong></div></div>
+    </div>
+    {% endif %}
 
-    <p>
-      Vous disposez, à chaque période, d'un portefeuille de <strong>10 €</strong> avec lequel
-      vous choisissez combien investir dans l'actif risqué.
-    </p>
-    <p>
-      Vous prendrez <strong>5 décisions successives</strong>, puis vous verrez le score total
-      du bloc. Vous ne verrez pas le détail des résultats après chaque choix individuel.
-    </p>
-
-    <table class="summary-table">
-      <thead>
-        <tr>
-          <th>Décisions</th>
-          <th>Affichages de résultats</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="mono">20 au total</td>
-          <td class="mono">4 au total (1 par bloc)</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>
-      <strong>Lisez attentivement les règles de chaque partie avant de commencer.</strong>
-      Les règles peuvent changer d'une partie à l'autre.
-    </p>
+    <h3>Exemple d'affichage</h3>
+    {% if is_economic %}
+    <div class="results-grid">
+      <div class="result-card favorable"><div class="label">Score total du bloc</div><div class="amount">58 €</div></div>
+      <div class="result-card defavorable"><div class="label">Score total du bloc</div><div class="amount">−7 €</div></div>
+    </div>
+    {% else %}
+    <div class="results-grid">
+      <div class="result-card favorable"><div class="label">Score total du bloc</div><div class="amount">25 €</div></div>
+      <div class="result-card defavorable"><div class="label">Score total du bloc</div><div class="amount">4 €</div></div>
+    </div>
+    {% endif %}
 
   {% elif treatment == "D" %}
 
-    <h1>Déroulement de la tâche</h1>
+    {% if part_number == 1 %}
 
-    <div class="info-box">
-      <p>L'exercice se déroule en <strong>20 périodes indépendantes</strong>.</p>
+      <h1>Déroulement de la tâche</h1>
+      <div class="info-box">
+        <p>L'exercice se déroule en <strong>deux parties de 10 périodes</strong> chacune. Après chaque période, le score est affiché.</p>
+      </div>
+      <p>Vous disposez, à chaque période, d'un portefeuille de <strong>10 €</strong> avec lequel vous choisissez combien investir dans l'actif risqué.</p>
+      <table class="summary-table">
+        <thead><tr><th>Décisions</th><th>Affichages de résultats</th></tr></thead>
+        <tbody><tr><td class="mono">20 au total</td><td class="mono">20 au total (1 par période)</td></tr></tbody>
+      </table>
+
+    {% else %}
+
+      <h1>Règles de la seconde partie</h1>
+
+    {% endif %}
+
+    <h2>Règle de calcul — {{ part_number }}ère/ème partie</h2>
+    <p>Pour chaque euro investi :</p>
+    <ul>
+      <li>Probabilité de <strong>1/3</strong> que le tirage soit <strong>favorable</strong></li>
+      <li>Probabilité de <strong>2/3</strong> que le tirage soit <strong>défavorable</strong></li>
+    </ul>
+
+    {% if is_economic %}
+    <div class="info-box" style="border-left-color: var(--negative);">
+      <p><strong>Tirage favorable :</strong> gain net égal à <strong>6 fois</strong> le montant investi.</p>
+      <p><strong>Tirage défavorable :</strong> vous perdez <strong>2 fois</strong> le montant investi.</p>
+      <p style="margin-top:.6rem"><strong>Score de la période</strong> = 10 € + résultat net</p>
+      <p style="color: var(--negative); margin-top:.4rem">⚠️ Le score d'une période peut être <strong>négatif</strong>. Cela ne modifie pas le portefeuille des périodes suivantes.</p>
     </div>
+    <div class="results-grid">
+      <div class="result-card favorable"><div class="label">✓ Favorable — 4 € investis</div><div class="amount">10 + 6 × 4 = <strong>34 €</strong></div></div>
+      <div class="result-card defavorable"><div class="label">✗ Défavorable — 4 € investis</div><div class="amount">10 − 2 × 4 = <strong>2 €</strong></div></div>
+    </div>
+    {% else %}
+    <div class="info-box">
+      <p><strong>Tirage favorable :</strong> gain net égal à <strong>2,5 fois</strong> le montant investi.</p>
+      <p><strong>Tirage défavorable :</strong> vous perdez le montant investi.</p>
+      <p style="margin-top:.6rem"><strong>Score de la période</strong> = 10 € + résultat net</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card favorable"><div class="label">✓ Favorable — 6 € investis</div><div class="amount">10 + 2,5 × 6 = <strong>25 €</strong></div></div>
+      <div class="result-card defavorable"><div class="label">✗ Défavorable — 6 € investis</div><div class="amount">10 − 6 = <strong>4 €</strong></div></div>
+    </div>
+    {% endif %}
 
-    <p>
-      Vous disposez, à chaque période, d'un portefeuille de <strong>10 €</strong> avec lequel
-      vous choisissez combien investir dans l'actif risqué.
-    </p>
-    <p>
-      Après <strong>chaque période</strong>, le score de la période est affiché immédiatement.
-    </p>
-
-    <table class="summary-table">
-      <thead>
-        <tr>
-          <th>Décisions</th>
-          <th>Affichages de résultats</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="mono">20 au total</td>
-          <td class="mono">20 au total (1 par période)</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>
-      <strong>Lisez attentivement les règles de chaque partie avant de commencer.</strong>
-      Les règles peuvent changer d'une partie à l'autre.
-    </p>
+    <h3>Exemple d'affichage</h3>
+    {% if is_economic %}
+    <div class="results-grid">
+      <div class="result-card favorable"><div class="label">Score de la période</div><div class="amount">34 €</div></div>
+      <div class="result-card defavorable"><div class="label">Score de la période</div><div class="amount">−2 €</div></div>
+    </div>
+    {% else %}
+    <div class="results-grid">
+      <div class="result-card favorable"><div class="label">Score de la période</div><div class="amount">25 €</div></div>
+      <div class="result-card defavorable"><div class="label">Score de la période</div><div class="amount">4 €</div></div>
+    </div>
+    {% endif %}
 
   {% endif %}
 
