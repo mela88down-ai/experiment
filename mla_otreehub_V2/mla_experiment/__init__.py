@@ -691,4 +691,3 @@ page_sequence = [
     ManipulationCheck,
     FinalResults,
 ]
-]
