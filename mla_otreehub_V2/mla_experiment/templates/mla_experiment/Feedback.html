@@ -40,13 +40,19 @@
       <div style="font-family:'JetBrains Mono',monospace; font-size:2rem; font-weight:800; color:#B00020;">
         {{ net }} €
       </div>
+    </div>
 
-      <div style="font-size:.8rem; color:#D32F2F; margin-top:.4rem; opacity:.9;">
-        {% if is_frequent %}
-          Résultat net de la période
-        {% else %}
-          Résultat net du bloc
-        {% endif %}
+    <style>
+      @keyframes flashRed {
+        0%, 100% { box-shadow: 0 0 0 rgba(211,47,47,0); }
+        50%       { box-shadow: 0 0 22px rgba(211,47,47,.45); }
+      }
+    </style>
+  {% else %}
+    <div class="info-box" style="margin-top: 1rem;">
+      <p><strong>Résultat net :</strong> {{ net }} €</p>
+    </div>
+  {% endif %}
       </div>
     </div>
 
