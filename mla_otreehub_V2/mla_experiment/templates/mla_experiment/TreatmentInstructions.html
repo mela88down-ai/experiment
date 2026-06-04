@@ -1,13 +1,13 @@
-{% block title %}Instructions — Version {{ version }}{% endblock %}
+{% block title %}Instructions — Version {{ treatment }}{% endblock %}
 
 {% block content %}
 <link rel="stylesheet" href="{{ static 'mla_experiment/style.css' }}">
 
 <div class="card">
 
-  <span class="badge">Version {{ version }}</span>
+  <span class="badge">Version {{ treatment }}</span>
 
-  {% if version == "A" %}
+  {% if treatment == "A" %}
 
     <h1>Déroulement de la tâche</h1>
 
@@ -55,7 +55,7 @@
 
     <p>Après chaque affichage, vous passerez au bloc suivant.</p>
 
-  {% elif version == "B" %}
+  {% elif treatment == "B" %}
 
     <h1>Déroulement de la tâche</h1>
 
@@ -100,7 +100,7 @@
 
     <p>Après chaque affichage, vous passerez à la période suivante.</p>
 
-  {% elif version == "C" %}
+  {% elif treatment == "C" %}
 
     <h1>Déroulement de la tâche</h1>
 
@@ -138,7 +138,7 @@
       Les règles peuvent changer d'une partie à l'autre.
     </p>
 
-  {% elif version == "D" %}
+  {% elif treatment == "D" %}
 
     <h1>Déroulement de la tâche</h1>
 
