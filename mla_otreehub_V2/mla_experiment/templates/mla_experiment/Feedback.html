@@ -13,10 +13,10 @@
     <h1>Score total du bloc</h1>
   {% endif %}
 
-  {% if score >= 0 %}
-    <div class="score-display" style="color: var(--positive);">{{ score }} €</div>
-  {% else %}
+  {% if negative %}
     <div class="score-display" style="color: var(--negative);">{{ score }} €</div>
+  {% else %}
+    <div class="score-display" style="color: var(--positive);">{{ score }} €</div>
   {% endif %}
 
   {% if not is_frequent %}
