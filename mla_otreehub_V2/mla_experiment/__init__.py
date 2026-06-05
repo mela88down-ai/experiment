@@ -23,12 +23,14 @@ class C(BaseConstants):
     ECON_LOSS_MULT = 2.0
 
     LIKERT_CHOICES = [
-        [1, '1 - Pas du tout caractéristique de moi'],
-        [2, '2 - Peu caractéristique de moi'],
-        [3, '3 - Neutre'],
-        [4, '4 - Assez caractéristique de moi'],
-        [5, '5 - Tout à fait caractéristique de moi'],
-    ]
+    [1, '1'],
+    [2, '2'],
+    [3, '3'],
+    [4, '4'],
+    [5, '5'],
+    [6, '6'],
+    [7, '7'],
+]
 
     LOTTERY_CHOICES = [
         ['A', 'Option A : 0 € avec certitude'],
@@ -181,104 +183,95 @@ class Player(BasePlayer):
         blank=False,
     )
 
-    # -------------------------
-    # CFC-12
-    # -------------------------
-    cfc_1 = models.IntegerField(
-        label="1. J'envisage comment pourraient être les choses dans le futur et j'essaie de les influencer par mon comportement quotidien.",
-        choices=C.LIKERT_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    cfc_2 = models.IntegerField(
-        label="2. Souvent, j'adopte un comportement particulier pour atteindre des objectifs qui ne se réaliseront peut-être pas avant des années.",
-        choices=C.LIKERT_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    cfc_3 = models.IntegerField(
-        label="3. Je n'agis que pour répondre à des préoccupations immédiates, en pensant que le futur s'arrangera de lui-même.",
-        choices=C.LIKERT_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    cfc_4 = models.IntegerField(
-        label="4. Mon comportement n'est influencé que par les conséquences immédiates de mes actes (dans les jours ou semaines qui suivent).",
-        choices=C.LIKERT_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    cfc_5 = models.IntegerField(
-        label="5. Mon confort est un facteur important dans les décisions que je prends ou dans les actions que je réalise.",
-        choices=C.LIKERT_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    cfc_6 = models.IntegerField(
-        label="6. Je suis prêt(e) à sacrifier mon bonheur ou mon bien-être immédiats afin d'atteindre des objectifs futurs.",
-        choices=C.LIKERT_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    cfc_7 = models.IntegerField(
-        label="7. Je pense qu'il est important de prendre au sérieux les mises en garde contre les conséquences négatives de mes actes, même si ces conséquences négatives n'interviendront pas avant plusieurs années.",
-        choices=C.LIKERT_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    cfc_8 = models.IntegerField(
-        label="8. Je pense qu'il vaut mieux adopter un comportement dont les conséquences lointaines seront bénéfiques, plutôt qu'un comportement entraînant des conséquences immédiates moins bénéfiques.",
-        choices=C.LIKERT_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    cfc_9 = models.IntegerField(
-        label="9. Je ne tiens généralement pas compte des mises en garde contre d'éventuels problèmes futurs car je pense que ces problèmes seront résolus avant d'avoir atteint un niveau critique.",
-        choices=C.LIKERT_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    cfc_10 = models.IntegerField(
-        label="10. Je pense qu'il n'est généralement pas nécessaire de faire des sacrifices dans le présent puisque je peux m'occuper des conséquences futures plus tard.",
-        choices=C.LIKERT_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    cfc_11 = models.IntegerField(
-        label="11. Je n'agis que pour répondre à des préoccupations immédiates, en pensant que je m'occuperai plus tard des problèmes qui surviendront éventuellement dans l'avenir.",
-        choices=C.LIKERT_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    cfc_12 = models.IntegerField(
-        label="12. Puisque mes actions quotidiennes ont des résultats précis, elles sont plus importantes pour moi qu'un comportement ayant des conséquences lointaines.",
-        choices=C.LIKERT_CHOICES,
-        widget=widgets.RadioSelect,
-    )
+# -------------------------
+# CFC-14
+# -------------------------
+cfc_1 = models.IntegerField(
+    label="1. J’imagine comment les choses seront dans le futur et j’essaie de les influencer par mon comportement quotidien.",
+    choices=C.LIKERT_CHOICES,
+    widget=widgets.RadioSelect,
+)
 
-    cfc_score = models.FloatField(blank=True)
-    cfc_raw_score = models.FloatField(blank=True)
+cfc_2 = models.IntegerField(
+    label="2. J’agis souvent pour atteindre des buts qui ne se concrétiseront que dans plusieurs années.",
+    choices=C.LIKERT_CHOICES,
+    widget=widgets.RadioSelect,
+)
 
-    # -------------------------
-    # Loss-aversion lotteries
-    # -------------------------
-    lottery_1 = models.StringField(
-        label='Loterie 1 : Option B = 50 % de chances de gagner +4 € ; 50 % de chances de perdre −3 €.',
-        choices=C.LOTTERY_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    lottery_2 = models.StringField(
-        label='Loterie 2 : Option B = 50 % de chances de gagner +4 € ; 50 % de chances de perdre −3,50 €.',
-        choices=C.LOTTERY_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    lottery_3 = models.StringField(
-        label='Loterie 3 : Option B = 50 % de chances de gagner +4 € ; 50 % de chances de perdre −4 €.',
-        choices=C.LOTTERY_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    lottery_4 = models.StringField(
-        label='Loterie 4 : Option B = 50 % de chances de gagner +4 € ; 50 % de chances de perdre −4,50 €.',
-        choices=C.LOTTERY_CHOICES,
-        widget=widgets.RadioSelect,
-    )
-    lottery_5 = models.StringField(
-        label='Loterie 5 : Option B = 50 % de chances de gagner +4 € ; 50 % de chances de perdre −5 €.',
-        choices=C.LOTTERY_CHOICES,
-        widget=widgets.RadioSelect,
-    )
+cfc_3 = models.IntegerField(
+    label="3. J’agis uniquement pour satisfaire mes préoccupations immédiates, pensant que le futur s’arrangera de lui-même.",
+    choices=C.LIKERT_CHOICES,
+    widget=widgets.RadioSelect,
+)
 
-    lottery_refusals = models.IntegerField(blank=True)
-    loss_aversion_index = models.FloatField(blank=True)
+cfc_4 = models.IntegerField(
+    label="4. Mon comportement est influencé uniquement par les conséquences immédiates de mes actions (immédiat = dans les jours ou semaines qui suivent).",
+    choices=C.LIKERT_CHOICES,
+    widget=widgets.RadioSelect,
+)
+
+cfc_5 = models.IntegerField(
+    label="5. La satisfaction de mes envies immédiates a une grande influence sur mes comportements ou sur les décisions que je prends.",
+    choices=C.LIKERT_CHOICES,
+    widget=widgets.RadioSelect,
+)
+
+cfc_6 = models.IntegerField(
+    label="6. Je suis prêt(e) à sacrifier mon bonheur ou bien-être immédiat pour atteindre des objectifs futurs.",
+    choices=C.LIKERT_CHOICES,
+    widget=widgets.RadioSelect,
+)
+
+cfc_7 = models.IntegerField(
+    label="7. Je pense qu’il est important de prendre au sérieux les mises en garde contre les conséquences négatives de mes actes, même si celles-ci ne surviendront pas avant plusieurs années.",
+    choices=C.LIKERT_CHOICES,
+    widget=widgets.RadioSelect,
+)
+
+cfc_8 = models.IntegerField(
+    label="8. Je pense qu’il est plus important de réaliser un comportement qui aura des conséquences futures importantes, qu’un comportement ayant des conséquences immédiates mais de moindre importance.",
+    choices=C.LIKERT_CHOICES,
+    widget=widgets.RadioSelect,
+)
+
+cfc_9 = models.IntegerField(
+    label="9. Je ne tiens généralement pas compte des mises en garde contre d’éventuels futurs problèmes, car je pense que ceux-ci seront résolus avant d’atteindre un niveau critique.",
+    choices=C.LIKERT_CHOICES,
+    widget=widgets.RadioSelect,
+)
+
+cfc_10 = models.IntegerField(
+    label="10. Je pense que se sacrifier aujourd’hui n’est généralement pas nécessaire puisque les problèmes futurs pourront être traités plus tard.",
+    choices=C.LIKERT_CHOICES,
+    widget=widgets.RadioSelect,
+)
+
+cfc_11 = models.IntegerField(
+    label="11. J’agis uniquement pour répondre à des préoccupations immédiates, pensant que je m’occuperai plus tard des futurs problèmes qui peuvent survenir.",
+    choices=C.LIKERT_CHOICES,
+    widget=widgets.RadioSelect,
+)
+
+cfc_12 = models.IntegerField(
+    label="12. Puisque mes actions quotidiennes ont des résultats immédiats, elles sont plus importantes pour moi qu’un comportement ayant des conséquences lointaines.",
+    choices=C.LIKERT_CHOICES,
+    widget=widgets.RadioSelect,
+)
+
+cfc_13 = models.IntegerField(
+    label="13. Quand je prends une décision, je réfléchis à la façon dont elle pourrait m’affecter dans le futur.",
+    choices=C.LIKERT_CHOICES,
+    widget=widgets.RadioSelect,
+)
+
+cfc_14 = models.IntegerField(
+    label="14. Mon comportement est en général influencé par ses conséquences futures.",
+    choices=C.LIKERT_CHOICES,
+    widget=widgets.RadioSelect,
+)
+
+cfc_score = models.FloatField(blank=True)
+cfc_raw_score = models.FloatField(blank=True)
 
     # -------------------------
     # Treatment/design fields
@@ -358,11 +351,15 @@ def compute_cfc_score(player):
         player.cfc_1, player.cfc_2, player.cfc_3, player.cfc_4,
         player.cfc_5, player.cfc_6, player.cfc_7, player.cfc_8,
         player.cfc_9, player.cfc_10, player.cfc_11, player.cfc_12,
+        player.cfc_13, player.cfc_14,
     ]
+
     raw = sum(values) / len(values)
+
     recoded = []
     for idx, value in enumerate(values, start=1):
-        recoded.append(6 - value if idx in C.CFC_REVERSED_ITEMS else value)
+        recoded.append(8 - value if idx in C.CFC_REVERSED_ITEMS else value)
+
     score = sum(recoded) / len(recoded)
 
     player.cfc_raw_score = _round2(raw)
@@ -451,9 +448,10 @@ class Consent(Page):
 class CFC(Page):
     form_model = 'player'
     form_fields = [
-        'cfc_1', 'cfc_2', 'cfc_3', 'cfc_4', 'cfc_5', 'cfc_6',
-        'cfc_7', 'cfc_8', 'cfc_9', 'cfc_10', 'cfc_11', 'cfc_12'
-    ]
+    'cfc_1', 'cfc_2', 'cfc_3', 'cfc_4', 'cfc_5', 'cfc_6',
+    'cfc_7', 'cfc_8', 'cfc_9', 'cfc_10', 'cfc_11', 'cfc_12',
+    'cfc_13', 'cfc_14'
+]
 
     @staticmethod
     def is_displayed(player):
@@ -682,7 +680,6 @@ class FinalResults(Page):
 page_sequence = [
     Consent,
     CFC,
-    LossAversion,
     GeneralInstructions,
     TreatmentInstructions,
     Investment,
