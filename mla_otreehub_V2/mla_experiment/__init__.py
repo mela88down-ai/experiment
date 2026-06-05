@@ -655,16 +655,17 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
         blank=True,
     )
+    
     comprehension_check = models.StringField(
-        label='Dans la règle alternative, que se passe-t-il si vous investissez 4 € et que le tirage est défavorable ?',
-        choices=[
-            ['correct', 'Vous perdez 3 × 4 €, donc 12 € ; le score de période est 10 − 12 = −2 €.'],
-            ['wrong_base', 'Vous perdez seulement 4 €, comme dans la règle de base.'],
-            ['wrong_reset', 'Vous ne pouvez plus investir aux périodes suivantes.'],
-        ],
-        widget=widgets.RadioSelect,
-        blank=True,
-    )
+    label='Dans la règle alternative, que se passe-t-il si vous investissez 4 € et que le tirage est défavorable ?',
+    choices=[
+        ['correct', 'Vous perdez 3 × 4 €, donc 12 € ; le score de période est 10 − 12 = −2 €.'],
+        ['wrong_base', 'Vous perdez seulement 4 €, comme dans la règle de base.'],
+        ['wrong_reset', 'Vous ne pouvez plus investir aux périodes suivantes.'],
+    ],
+    widget=widgets.RadioSelect,
+    blank=True,
+)
 
 
 # -------------------------
