@@ -19,27 +19,32 @@
       <thead><tr><th>Décisions</th><th>Affichages de résultats</th></tr></thead>
       <tbody><tr><td class="mono">20 au total</td><td class="mono">4 au total (1 par bloc)</td></tr></tbody>
     </table>
+
     <h2>Règle de calcul</h2>
     <p>Vous avez pour chaque euro investi :</p>
     <ul>
       <li>Une probabilité de <strong>1/3</strong> que le tirage soit favorable</li>
       <li>Une probabilité de <strong>2/3</strong> que le tirage soit défavorable</li>
     </ul>
+
     <div class="info-box">
       <p>Lorsque le tirage est <strong>favorable</strong>, vous obtenez un gain net égal à <strong>2,5 fois</strong> le montant investi.</p>
       <p>Lorsque le tirage est <strong>défavorable</strong>, vous perdez le montant investi.</p>
       <p style="margin-top:.6rem"><strong>Score de la période</strong> = 10 € + résultat net de l'investissement</p>
     </div>
+
     <h3>Exemple — investissement de 6 €</h3>
     <div class="results-grid">
       <div class="result-card favorable"><div class="label">✓ Tirage favorable</div><div class="amount">10 + 2,5 × 6 = <strong>25 €</strong></div></div>
       <div class="result-card defavorable"><div class="label">✗ Tirage défavorable</div><div class="amount">10 − 6 = <strong>4 €</strong></div></div>
     </div>
+
     <h3>Exemple d'affichage</h3>
     <div class="results-grid">
       <div class="result-card favorable"><div class="label">Score total du bloc</div><div class="amount">25 €</div></div>
       <div class="result-card defavorable"><div class="label">Score total du bloc</div><div class="amount">4 €</div></div>
     </div>
+
     <p>Après chaque affichage, vous passerez au bloc suivant.</p>
 
   {% elif treatment == "B" %}
@@ -53,27 +58,32 @@
       <thead><tr><th>Décisions</th><th>Affichages de résultats</th></tr></thead>
       <tbody><tr><td class="mono">20 au total</td><td class="mono">20 au total (1 par période)</td></tr></tbody>
     </table>
+
     <h2>Règle de calcul</h2>
     <p>Vous avez pour chaque euro investi :</p>
     <ul>
       <li>Une probabilité de <strong>1/3</strong> que le tirage soit favorable</li>
       <li>Une probabilité de <strong>2/3</strong> que le tirage soit défavorable</li>
     </ul>
+
     <div class="info-box">
       <p>Lorsque le tirage est <strong>favorable</strong>, vous obtenez un gain net égal à <strong>2,5 fois</strong> le montant investi.</p>
       <p>Lorsque le tirage est <strong>défavorable</strong>, vous perdez le montant investi.</p>
       <p style="margin-top:.6rem"><strong>Score de la période</strong> = 10 € + résultat net de l'investissement</p>
     </div>
+
     <h3>Exemple — investissement de 6 €</h3>
     <div class="results-grid">
       <div class="result-card favorable"><div class="label">✓ Tirage favorable</div><div class="amount">10 + 2,5 × 6 = <strong>25 €</strong></div></div>
       <div class="result-card defavorable"><div class="label">✗ Tirage défavorable</div><div class="amount">10 − 6 = <strong>4 €</strong></div></div>
     </div>
+
     <h3>Exemple d'affichage</h3>
     <div class="results-grid">
       <div class="result-card favorable"><div class="label">Score de la période</div><div class="amount">25 €</div></div>
       <div class="result-card defavorable"><div class="label">Score de la période</div><div class="amount">4 €</div></div>
     </div>
+
     <p>Après chaque affichage, vous passerez à la période suivante.</p>
 
   {% elif treatment == "C" %}
@@ -102,32 +112,37 @@
 
     {% if is_economic %}
     <div class="info-box" style="border-left-color: var(--negative);">
-      <p>Lorsque le tirage est <strong>favorable</strong>, vous obtenez un gain net égal à <strong>6 fois</strong> le montant investi.</p>
-      <p>Lorsque le tirage est <strong>défavorable</strong>, vous perdez <strong>2 fois</strong> le montant investi.</p>
+      <p>Lorsque le tirage est <strong>favorable</strong>, vous obtenez un gain net égal à <strong>6,5 fois</strong> le montant investi.</p>
+      <p>Lorsque le tirage est <strong>défavorable</strong>, vous perdez <strong>3 fois</strong> le montant investi.</p>
       <p style="margin-top:.6rem"><strong>Score de la période</strong> = 10 € + résultat net de l'investissement</p>
       <p style="color: var(--negative); margin-top:.4rem">⚠️ Dans cette partie, le score d'une période ou d'un bloc peut être <strong>négatif</strong>. Cela ne modifie pas le portefeuille des périodes suivantes : à chaque nouvelle période, vous disposez toujours de <strong>10 €</strong>.</p>
     </div>
+
     <h3>Exemple — investissement de 4 €</h3>
     <div class="results-grid">
-      <div class="result-card favorable"><div class="label">✓ Tirage favorable</div><div class="amount">10 + 6 × 4 = <strong>34 €</strong></div></div>
-      <div class="result-card defavorable"><div class="label">✗ Tirage défavorable</div><div class="amount">10 − 2 × 4 = <strong>2 €</strong></div></div>
+      <div class="result-card favorable"><div class="label">✓ Tirage favorable</div><div class="amount">10 + 6,5 × 4 = <strong>36 €</strong></div></div>
+      <div class="result-card defavorable"><div class="label">✗ Tirage défavorable</div><div class="amount">10 − 3 × 4 = <strong>−2 €</strong></div></div>
     </div>
+
     <h3>Exemple d'affichage</h3>
     <div class="results-grid">
-      <div class="result-card favorable"><div class="label">Score total du bloc</div><div class="amount">34 €</div></div>
-      <div class="result-card defavorable"><div class="label">Score total du bloc</div><div class="amount">2 €</div></div>
+      <div class="result-card favorable"><div class="label">Score total du bloc</div><div class="amount">36 €</div></div>
+      <div class="result-card defavorable"><div class="label">Score total du bloc</div><div class="amount">−2 €</div></div>
     </div>
+
     {% else %}
     <div class="info-box">
       <p>Lorsque le tirage est <strong>favorable</strong>, vous obtenez un gain net égal à <strong>2,5 fois</strong> le montant investi.</p>
       <p>Lorsque le tirage est <strong>défavorable</strong>, vous perdez le montant investi.</p>
       <p style="margin-top:.6rem"><strong>Score de la période</strong> = 10 € + résultat net de l'investissement</p>
     </div>
+
     <h3>Exemple — investissement de 6 €</h3>
     <div class="results-grid">
       <div class="result-card favorable"><div class="label">✓ Tirage favorable</div><div class="amount">10 + 2,5 × 6 = <strong>25 €</strong></div></div>
       <div class="result-card defavorable"><div class="label">✗ Tirage défavorable</div><div class="amount">10 − 6 = <strong>4 €</strong></div></div>
     </div>
+
     <h3>Exemple d'affichage</h3>
     <div class="results-grid">
       <div class="result-card favorable"><div class="label">Score total du bloc</div><div class="amount">25 €</div></div>
@@ -160,32 +175,37 @@
 
     {% if is_economic %}
     <div class="info-box" style="border-left-color: var(--negative);">
-      <p>Lorsque le tirage est <strong>favorable</strong>, vous obtenez un gain net égal à <strong>6 fois</strong> le montant investi.</p>
-      <p>Lorsque le tirage est <strong>défavorable</strong>, vous perdez <strong>2 fois</strong> le montant investi.</p>
+      <p>Lorsque le tirage est <strong>favorable</strong>, vous obtenez un gain net égal à <strong>6,5 fois</strong> le montant investi.</p>
+      <p>Lorsque le tirage est <strong>défavorable</strong>, vous perdez <strong>3 fois</strong> le montant investi.</p>
       <p style="margin-top:.6rem"><strong>Score de la période</strong> = 10 € + résultat net de l'investissement</p>
       <p style="color: var(--negative); margin-top:.4rem">⚠️ Dans cette partie, le score d'une période peut être <strong>négatif</strong>. Cela ne modifie pas le portefeuille des périodes suivantes : à chaque nouvelle période, vous disposez toujours de <strong>10 €</strong>.</p>
     </div>
+
     <h3>Exemple — investissement de 4 €</h3>
     <div class="results-grid">
-      <div class="result-card favorable"><div class="label">✓ Tirage favorable</div><div class="amount">10 + 6 × 4 = <strong>34 €</strong></div></div>
-      <div class="result-card defavorable"><div class="label">✗ Tirage défavorable</div><div class="amount">10 − 2 × 4 = <strong>2 €</strong></div></div>
+      <div class="result-card favorable"><div class="label">✓ Tirage favorable</div><div class="amount">10 + 6,5 × 4 = <strong>36 €</strong></div></div>
+      <div class="result-card defavorable"><div class="label">✗ Tirage défavorable</div><div class="amount">10 − 3 × 4 = <strong>−2 €</strong></div></div>
     </div>
+
     <h3>Exemple d'affichage</h3>
     <div class="results-grid">
-      <div class="result-card favorable"><div class="label">Score de la période</div><div class="amount">34 €</div></div>
-      <div class="result-card defavorable"><div class="label">Score de la période</div><div class="amount">2 €</div></div>
+      <div class="result-card favorable"><div class="label">Score de la période</div><div class="amount">36 €</div></div>
+      <div class="result-card defavorable"><div class="label">Score de la période</div><div class="amount">−2 €</div></div>
     </div>
+
     {% else %}
     <div class="info-box">
       <p>Lorsque le tirage est <strong>favorable</strong>, vous obtenez un gain net égal à <strong>2,5 fois</strong> le montant investi.</p>
       <p>Lorsque le tirage est <strong>défavorable</strong>, vous perdez le montant investi.</p>
       <p style="margin-top:.6rem"><strong>Score de la période</strong> = 10 € + résultat net de l'investissement</p>
     </div>
+
     <h3>Exemple — investissement de 6 €</h3>
     <div class="results-grid">
       <div class="result-card favorable"><div class="label">✓ Tirage favorable</div><div class="amount">10 + 2,5 × 6 = <strong>25 €</strong></div></div>
       <div class="result-card defavorable"><div class="label">✗ Tirage défavorable</div><div class="amount">10 − 6 = <strong>4 €</strong></div></div>
     </div>
+
     <h3>Exemple d'affichage</h3>
     <div class="results-grid">
       <div class="result-card favorable"><div class="label">Score de la période</div><div class="amount">25 €</div></div>
