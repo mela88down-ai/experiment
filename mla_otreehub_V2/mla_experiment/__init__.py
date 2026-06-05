@@ -22,19 +22,14 @@ class C(BaseConstants):
     ECON_GAIN_MULT = 6.0
     ECON_LOSS_MULT = 2.0
 
-        LIKERT_CHOICES = [
-        [1, '1'],
-        [2, '2'],
-        [3, '3'],
-        [4, '4'],
-        [5, '5'],
-        [6, '6'],
-        [7, '7'],
-    ]
-
-    LOTTERY_CHOICES = [
-        ['A', 'Option A : 0 € avec certitude'],
-        ['B', 'Option B : participer à la loterie'],
+    LIKERT_CHOICES = [
+    [1, '1'],
+    [2, '2'],
+    [3, '3'],
+    [4, '4'],
+    [5, '5'],
+    [6, '6'],
+    [7, '7'],
     ]
 
     CFC_REVERSED_ITEMS = [3, 4, 5, 9, 10, 11, 12]
@@ -447,7 +442,7 @@ class Consent(Page):
 
 class CFC(Page):
     form_model = 'player'
-        form_fields = [
+    form_fields = [
         'cfc_1', 'cfc_2', 'cfc_3', 'cfc_4', 'cfc_5', 'cfc_6',
         'cfc_7', 'cfc_8', 'cfc_9', 'cfc_10', 'cfc_11', 'cfc_12',
         'cfc_13', 'cfc_14'
