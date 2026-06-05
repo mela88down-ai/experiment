@@ -1,5 +1,4 @@
 {% block title %}Questionnaire{% endblock %}
-
 {% block content %}
 <link rel="stylesheet" href="{{ static 'mla_experiment/style.css' }}">
 
@@ -14,16 +13,16 @@
     en choisissant le chiffre qui convient le mieux.
   </p>
 
-  <div class="info-box" style="margin-top: 1rem; margin-bottom: 1.2rem;">
-    <p style="margin: 0;">
-      <strong>1</strong> = Ne me correspond pas du tout<br>
-      <strong>4</strong> = Me correspond moyennement<br>
-      <strong>7</strong> = Me correspond totalement
-    </p>
-    <p style="margin-bottom: 0; margin-top: .7rem;">
-      Vous pouvez utiliser tous les chiffres situés entre les deux extrémités.
-    </p>
-  </div>
+  <p>
+    Utilisez l’échelle suivante :
+    <strong>1</strong> = extrêmement peu caractéristique de moi ;
+    <strong>2</strong> = modérément peu caractéristique de moi ;
+    <strong>3</strong> = légèrement peu caractéristique de moi ;
+    <strong>4</strong> = incertain(e) ;
+    <strong>5</strong> = légèrement caractéristique de moi ;
+    <strong>6</strong> = modérément caractéristique de moi ;
+    <strong>7</strong> = extrêmement caractéristique de moi.
+  </p>
 
   {{ formfields }}
 
