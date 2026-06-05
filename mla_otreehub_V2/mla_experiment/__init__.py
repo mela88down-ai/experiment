@@ -22,15 +22,15 @@ class C(BaseConstants):
     ECON_GAIN_MULT = 6.0
     ECON_LOSS_MULT = 2.0
 
-    LIKERT_CHOICES = [
-    [1, '1'],
-    [2, '2'],
-    [3, '3'],
-    [4, '4'],
-    [5, '5'],
-    [6, '6'],
-    [7, '7'],
-]
+        LIKERT_CHOICES = [
+        [1, '1'],
+        [2, '2'],
+        [3, '3'],
+        [4, '4'],
+        [5, '5'],
+        [6, '6'],
+        [7, '7'],
+    ]
 
     LOTTERY_CHOICES = [
         ['A', 'Option A : 0 € avec certitude'],
@@ -183,96 +183,96 @@ class Player(BasePlayer):
         blank=False,
     )
 
-# -------------------------
-# CFC-14
-# -------------------------
-cfc_1 = models.IntegerField(
-    label="1. J’imagine comment les choses seront dans le futur et j’essaie de les influencer par mon comportement quotidien.",
-    choices=C.LIKERT_CHOICES,
-    widget=widgets.RadioSelect,
-)
+    # -------------------------
+    # CFC-14
+    # -------------------------
+    cfc_1 = models.IntegerField(
+        label="1. J’imagine comment les choses seront dans le futur et j’essaie de les influencer par mon comportement quotidien.",
+        choices=C.LIKERT_CHOICES,
+        widget=widgets.RadioSelect,
+    )
 
-cfc_2 = models.IntegerField(
-    label="2. J’agis souvent pour atteindre des buts qui ne se concrétiseront que dans plusieurs années.",
-    choices=C.LIKERT_CHOICES,
-    widget=widgets.RadioSelect,
-)
+    cfc_2 = models.IntegerField(
+        label="2. J’agis souvent pour atteindre des buts qui ne se concrétiseront que dans plusieurs années.",
+        choices=C.LIKERT_CHOICES,
+        widget=widgets.RadioSelect,
+    )
 
-cfc_3 = models.IntegerField(
-    label="3. J’agis uniquement pour satisfaire mes préoccupations immédiates, pensant que le futur s’arrangera de lui-même.",
-    choices=C.LIKERT_CHOICES,
-    widget=widgets.RadioSelect,
-)
+    cfc_3 = models.IntegerField(
+        label="3. J’agis uniquement pour satisfaire mes préoccupations immédiates, pensant que le futur s’arrangera de lui-même.",
+        choices=C.LIKERT_CHOICES,
+        widget=widgets.RadioSelect,
+    )
 
-cfc_4 = models.IntegerField(
-    label="4. Mon comportement est influencé uniquement par les conséquences immédiates de mes actions (immédiat = dans les jours ou semaines qui suivent).",
-    choices=C.LIKERT_CHOICES,
-    widget=widgets.RadioSelect,
-)
+    cfc_4 = models.IntegerField(
+        label="4. Mon comportement est influencé uniquement par les conséquences immédiates de mes actions (immédiat = dans les jours ou semaines qui suivent).",
+        choices=C.LIKERT_CHOICES,
+        widget=widgets.RadioSelect,
+    )
 
-cfc_5 = models.IntegerField(
-    label="5. La satisfaction de mes envies immédiates a une grande influence sur mes comportements ou sur les décisions que je prends.",
-    choices=C.LIKERT_CHOICES,
-    widget=widgets.RadioSelect,
-)
+    cfc_5 = models.IntegerField(
+        label="5. La satisfaction de mes envies immédiates a une grande influence sur mes comportements ou sur les décisions que je prends.",
+        choices=C.LIKERT_CHOICES,
+        widget=widgets.RadioSelect,
+    )
 
-cfc_6 = models.IntegerField(
-    label="6. Je suis prêt(e) à sacrifier mon bonheur ou bien-être immédiat pour atteindre des objectifs futurs.",
-    choices=C.LIKERT_CHOICES,
-    widget=widgets.RadioSelect,
-)
+    cfc_6 = models.IntegerField(
+        label="6. Je suis prêt(e) à sacrifier mon bonheur ou bien-être immédiat pour atteindre des objectifs futurs.",
+        choices=C.LIKERT_CHOICES,
+        widget=widgets.RadioSelect,
+    )
 
-cfc_7 = models.IntegerField(
-    label="7. Je pense qu’il est important de prendre au sérieux les mises en garde contre les conséquences négatives de mes actes, même si celles-ci ne surviendront pas avant plusieurs années.",
-    choices=C.LIKERT_CHOICES,
-    widget=widgets.RadioSelect,
-)
+    cfc_7 = models.IntegerField(
+        label="7. Je pense qu’il est important de prendre au sérieux les mises en garde contre les conséquences négatives de mes actes, même si celles-ci ne surviendront pas avant plusieurs années.",
+        choices=C.LIKERT_CHOICES,
+        widget=widgets.RadioSelect,
+    )
 
-cfc_8 = models.IntegerField(
-    label="8. Je pense qu’il est plus important de réaliser un comportement qui aura des conséquences futures importantes, qu’un comportement ayant des conséquences immédiates mais de moindre importance.",
-    choices=C.LIKERT_CHOICES,
-    widget=widgets.RadioSelect,
-)
+    cfc_8 = models.IntegerField(
+        label="8. Je pense qu’il est plus important de réaliser un comportement qui aura des conséquences futures importantes, qu’un comportement ayant des conséquences immédiates mais de moindre importance.",
+        choices=C.LIKERT_CHOICES,
+        widget=widgets.RadioSelect,
+    )
 
-cfc_9 = models.IntegerField(
-    label="9. Je ne tiens généralement pas compte des mises en garde contre d’éventuels futurs problèmes, car je pense que ceux-ci seront résolus avant d’atteindre un niveau critique.",
-    choices=C.LIKERT_CHOICES,
-    widget=widgets.RadioSelect,
-)
+    cfc_9 = models.IntegerField(
+        label="9. Je ne tiens généralement pas compte des mises en garde contre d’éventuels futurs problèmes, car je pense que ceux-ci seront résolus avant d’atteindre un niveau critique.",
+        choices=C.LIKERT_CHOICES,
+        widget=widgets.RadioSelect,
+    )
 
-cfc_10 = models.IntegerField(
-    label="10. Je pense que se sacrifier aujourd’hui n’est généralement pas nécessaire puisque les problèmes futurs pourront être traités plus tard.",
-    choices=C.LIKERT_CHOICES,
-    widget=widgets.RadioSelect,
-)
+    cfc_10 = models.IntegerField(
+        label="10. Je pense que se sacrifier aujourd’hui n’est généralement pas nécessaire puisque les problèmes futurs pourront être traités plus tard.",
+        choices=C.LIKERT_CHOICES,
+        widget=widgets.RadioSelect,
+    )
 
-cfc_11 = models.IntegerField(
-    label="11. J’agis uniquement pour répondre à des préoccupations immédiates, pensant que je m’occuperai plus tard des futurs problèmes qui peuvent survenir.",
-    choices=C.LIKERT_CHOICES,
-    widget=widgets.RadioSelect,
-)
+    cfc_11 = models.IntegerField(
+        label="11. J’agis uniquement pour répondre à des préoccupations immédiates, pensant que je m’occuperai plus tard des futurs problèmes qui peuvent survenir.",
+        choices=C.LIKERT_CHOICES,
+        widget=widgets.RadioSelect,
+    )
 
-cfc_12 = models.IntegerField(
-    label="12. Puisque mes actions quotidiennes ont des résultats immédiats, elles sont plus importantes pour moi qu’un comportement ayant des conséquences lointaines.",
-    choices=C.LIKERT_CHOICES,
-    widget=widgets.RadioSelect,
-)
+    cfc_12 = models.IntegerField(
+        label="12. Puisque mes actions quotidiennes ont des résultats immédiats, elles sont plus importantes pour moi qu’un comportement ayant des conséquences lointaines.",
+        choices=C.LIKERT_CHOICES,
+        widget=widgets.RadioSelect,
+    )
 
-cfc_13 = models.IntegerField(
-    label="13. Quand je prends une décision, je réfléchis à la façon dont elle pourrait m’affecter dans le futur.",
-    choices=C.LIKERT_CHOICES,
-    widget=widgets.RadioSelect,
-)
+    cfc_13 = models.IntegerField(
+        label="13. Quand je prends une décision, je réfléchis à la façon dont elle pourrait m’affecter dans le futur.",
+        choices=C.LIKERT_CHOICES,
+        widget=widgets.RadioSelect,
+    )
 
-cfc_14 = models.IntegerField(
-    label="14. Mon comportement est en général influencé par ses conséquences futures.",
-    choices=C.LIKERT_CHOICES,
-    widget=widgets.RadioSelect,
-)
+    cfc_14 = models.IntegerField(
+        label="14. Mon comportement est en général influencé par ses conséquences futures.",
+        choices=C.LIKERT_CHOICES,
+        widget=widgets.RadioSelect,
+    )
 
-cfc_score = models.FloatField(blank=True)
-cfc_raw_score = models.FloatField(blank=True)
-
+    cfc_score = models.FloatField(blank=True)
+    cfc_raw_score = models.FloatField(blank=True)
+    
     # -------------------------
     # Treatment/design fields
     # -------------------------
@@ -447,11 +447,11 @@ class Consent(Page):
 
 class CFC(Page):
     form_model = 'player'
-    form_fields = [
-    'cfc_1', 'cfc_2', 'cfc_3', 'cfc_4', 'cfc_5', 'cfc_6',
-    'cfc_7', 'cfc_8', 'cfc_9', 'cfc_10', 'cfc_11', 'cfc_12',
-    'cfc_13', 'cfc_14'
-]
+        form_fields = [
+        'cfc_1', 'cfc_2', 'cfc_3', 'cfc_4', 'cfc_5', 'cfc_6',
+        'cfc_7', 'cfc_8', 'cfc_9', 'cfc_10', 'cfc_11', 'cfc_12',
+        'cfc_13', 'cfc_14'
+    ]
 
     @staticmethod
     def is_displayed(player):
