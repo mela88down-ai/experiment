@@ -19,8 +19,8 @@ class C(BaseConstants):
 
     BASE_GAIN_MULT = 2.5
     BASE_LOSS_MULT = 1.0
-    ECON_GAIN_MULT = 6.0
-    ECON_LOSS_MULT = 2.0
+    ECON_GAIN_MULT = 6.5
+    ECON_LOSS_MULT = 3.0
 
     LIKERT_CHOICES = [
     [1, '1'],
