@@ -23,7 +23,7 @@
     <p>Les résultats intermédiaires de chaque période ne sont pas affichés.</p>
   {% endif %}
 
-  {% if negative and visual %}
+ {% if negative and visual %}
     <div style="
       margin-top: 1.2rem;
       background: #ffffff;
@@ -48,11 +48,11 @@
         50% { box-shadow: 0 0 18px rgba(211,47,47,.35); }
       }
     </style>
-  {% else %}
+{% else %}
     <div class="info-box" style="margin-top: 1rem;">
       <p><strong>Résultat net :</strong> {{ net }} €</p>
     </div>
-  {% endif %}
+{% endif %}
 
   {% if debug_visual %}
   <hr>
